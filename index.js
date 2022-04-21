@@ -54,12 +54,14 @@ const displayMovie = async function () {
     const movieInput = document.getElementById('movieInput').value
 
     if (movieInput == '') {
+        updateTitle("No Results Found")
         document.getElementById('count').innerText = 0  
         showAlert('Type any Movie Name')
         return false;
     }
 
-    document.getElementById('results').innerText = 'Loading';
+    updateTitle(`Search Results for "${movieInput}"`)
+    document.getElementById('results').innerText = 'Searching 🔍🔎';
     document.getElementById('count').innerText = 0
     const result = await start(url);
     let i = 0
@@ -95,6 +97,7 @@ const displayMovie = async function () {
 
 // Reset Function
 function resetButton() {
+    updateTitle(`T2links Movie Search`)
     document.getElementById('movieInput').value = '';
     document.getElementById('row').innerHTML = '';
     document.getElementById('results').innerText = 'Results Found';
@@ -113,6 +116,11 @@ function showAlert(str) {
         alertHTML.style.display = 'none';
     }, 2000);
 }
+
+//Update Window Title
+function updateTitle(title) {
+    window.document.title = title
+} 
 
 // click button
 movieSubmit.addEventListener('click', displayMovie)
