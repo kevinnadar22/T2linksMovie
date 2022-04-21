@@ -1,4 +1,4 @@
-// Intizialising the variables
+// Initializing the variables
 let url = 'https://gist.githubusercontent.com/kevinnadar22/112e759f1f6f7747c5df8d8749e464f0/raw/0190049fe65baabc057662495125b0070cb6d764/data.json';
 
 
